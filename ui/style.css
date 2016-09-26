@@ -1,6 +1,6 @@
 body {
     font-family: sans-serif;
-    background: white;
+    background: SkyBlue;
     color: black;
     margin-top: 75px;
 }
@@ -24,6 +24,5 @@ body {
     max-width:800px;
     margin: 0 auto;
     color:black;
-    background:white;
     font-family:times new roman;
 }
