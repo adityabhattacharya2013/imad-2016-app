@@ -5,20 +5,34 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+var articles={
+    
 
-var aone={
-title:'Article One | Tanmai Goyal',
-heading: 'Article One',
-date: 'Sept 5,2016',
-content: `<p>
-Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.
-</p>
-<p>
-Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.
-</p>
-<p>
-Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.
-</p>`
+    'aone':{
+    title:'Article One | Tanmai Goyal',
+    heading: 'Article One',
+    date: 'Sept 5,2016',
+    content: `<p>
+    Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.
+    </p>
+    <p>
+    Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.
+    </p>
+    <p>
+    Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.Plain text.
+    </p>`
+    },
+    'atwo':{
+    title:'Article Two | Tanmai Goyal',
+    heading: 'Article Two',
+    date: 'Sept 10,2016',
+    content: `
+    <p>
+    New Text.
+    
+    </p>`
+    }
+    
 };
 function createTemplate(data)
 {
@@ -62,8 +76,9 @@ return htmlTemplate;
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
-app.get('/aone', function (req, res) {
-  res.send(createTemplate(aone));
+app.get('/:articlesName', function (req, res) {
+    var articlesName=req.param.articlesName;
+  res.send(createTemplate(articles[articlesName]));
 });
 app.get('/abc', function (req, res) {
   res.send('Request processed');
