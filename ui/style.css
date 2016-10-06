@@ -2,7 +2,7 @@ body {
     font-family: sans-serif;
     color: black;
     background: SkyBlue;
-    margin-top: 75px;
+    margin-top: 45px;
 }
 
 .center {
@@ -29,7 +29,7 @@ body {
 }
 .backd{
     
-    max-width:800px;
+    max-width:1600px;
     margin: 0 auto;
     background: White;
     color:black;
